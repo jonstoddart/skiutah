@@ -7,3 +7,6 @@ ubuntu-xenial-16.04*.log
 
 # Vendors
 vendor/*
+
+# App Config
+app/config/local.json

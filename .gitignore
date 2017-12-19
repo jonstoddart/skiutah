@@ -1,2 +1,9 @@
+# IDE
 .idea/*
+
+# Vagrant
+.vagrant/*
+ubuntu-xenial-16.04*.log
+
+# Vendors
 vendor/*

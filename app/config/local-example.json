@@ -1,3 +1,11 @@
 {
-  "baseurl": ""
+  "baseurl": "",
+  "db": {
+    "driver": "",
+    "dbname": "",
+    "host": "",
+    "user": "",
+    "password": "",
+    "port": ""
+  }
 }

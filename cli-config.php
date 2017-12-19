@@ -1,18 +1,14 @@
 <?php
 
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
 use Lokhman\Silex\Provider\ConfigServiceProvider;
-use SkiUtah\Provider\RoutingProvider;
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 $app = new Silex\Application();
 
-$app->error(function (Exception $e) use ($app) {
-    return new \Symfony\Component\HttpFoundation\Response("Something goes terribly wrong: " . $e->getMessage());
-});
-
-$app->register(new ConfigServiceProvider(), ['config.dir' => __DIR__ . '/../config']);
+$app->register(new ConfigServiceProvider(), ['config.dir' => __DIR__ . '/app/config']);
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), [
     'db.options' => [
@@ -32,16 +28,12 @@ $app->register(new DoctrineOrmServiceProvider(), [
             [
                 'type' => 'annotation',
                 'namespace' => 'SkiUtah\Entity',
-                'path' => __DIR__ . '/../Entity',
-                'use_simple_annotation_reader' => false
+                'path' => __DIR__.'/../Entity',
             ]
         ]
     ]
 ]);
 
-$app->register(new Silex\Provider\TwigServiceProvider(), ['twig.path' => __DIR__ . '/../views']);
-$app['twig']->addGlobal('baseurl', $app['config']['baseurl']);
+$entityManager = $app['orm.em'];
 
-$app->mount('/', new RoutingProvider());
-
-$app->run();
+return ConsoleRunner::createHelperSet($entityManager);

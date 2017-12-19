@@ -1,15 +1,15 @@
-{% include 'app/header.twig' %}
+{% extends 'app/base.twig' %}
 
-<h3>Welcome to Ski Utah!</h3>
-<div class="row">
-    <div class="col-md-12">Resort</div>
-</div>
-{% for resort in resorts %}
-<div class="row">
-    <div class="col-md-6"><a href="{{ baseurl }}/resort/{{ resort.getResortSlug() }}">{{ resort.getResortName() }}</a></div>
-    <div class="col-md-4">Links</div>
-    <div class="col-md-2">NWS</div>
-</div>
-{% endfor %}
-
-{% include 'app/footer.twig' %}
+{% block pagecontent %}
+    <h3>Welcome to Ski Utah!</h3>
+    <div class="row">
+        <div class="col-md-12">Resort</div>
+    </div>
+    {% for resort in resorts %}
+        <div class="row">
+            <div class="col-md-6"><a href="{{ baseurl }}/resort/{{ resort.getResortSlug() }}">{{ resort.getResortName() }}</a></div>
+            <div class="col-md-4">Links</div>
+            <div class="col-md-2">NWS</div>
+        </div>
+    {% endfor %}
+{% endblock %}

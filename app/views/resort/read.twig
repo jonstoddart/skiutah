@@ -1,5 +1,5 @@
-{% include 'app/header.twig' %}
+{% extends 'app/base.twig' %}
 
-<h1>{{ resort.getResortName() }}</h1>
-
-{% include 'app/footer.twig' %}
+{% block pagecontent %}
+    <h1>{{ resort.getResortName() }}</h1>
+{% endblock %}

@@ -9,6 +9,6 @@ class DefaultController extends BaseController
 {
     public function index(Request $request, Application $app)
     {
-        return 'index';
+        return $app['twig']->render('home/index.twig');
     }
 }

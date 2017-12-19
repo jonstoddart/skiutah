@@ -1,7 +1,8 @@
 {
   "require": {
     "silex/silex": "~2.0",
-    "twig/twig": "^2.4"
+    "twig/twig": "^2.4",
+    "lokhman/silex-config": "^2.0"
   },
   "autoload": {
     "psr-4": {

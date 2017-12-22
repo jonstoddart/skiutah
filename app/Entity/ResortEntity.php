@@ -27,6 +27,13 @@ class ResortEntity extends BaseEntity
     protected $resort_name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="resort_url", type="string", length=255, nullable=false)
+     */
+    protected $resort_url;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="latitude", type="decimal", nullable=false)
@@ -73,6 +80,24 @@ class ResortEntity extends BaseEntity
     public function setResortName($resort_name)
     {
         $this->resort_name = $resort_name;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResortUrl()
+    {
+        return $this->resort_url;
+    }
+
+    /**
+     * @param string $resort_url
+     * @return ResortEntity
+     */
+    public function setResortUrl($resort_url)
+    {
+        $this->resort_url = $resort_url;
         return $this;
     }
 

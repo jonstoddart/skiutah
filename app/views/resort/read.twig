@@ -1,5 +1,5 @@
 {% extends 'app/base.twig' %}
 
 {% block pagecontent %}
-    <h1>{{ resort.getResortName() }}</h1>
+    <h1><a target="_blank" href="{{ resort.getResortURL() }}">{{ resort.getResortName() }}</a></h1>
 {% endblock %}
